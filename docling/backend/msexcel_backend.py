@@ -218,6 +218,8 @@ class MsExcelDocumentBackend(DeclarativeDocumentBackend):
         max_row = self._find_table_bottom(sheet, start_row, start_col)
         max_col = self._find_table_right(sheet, start_row, start_col)
 
+        _log.info(f"max_row: {max_row}, max_col: {max_col}")
+
         # Collect the data within the bounds
         data = []
         visited_cells = set()
