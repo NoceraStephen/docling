@@ -169,6 +169,8 @@ class MsExcelDocumentBackend(DeclarativeDocumentBackend):
                     column_header=excel_cell.row == 0,
                     row_header=False,
                 )
+                setattr(cell, "global_row", excel_cell.global_row)
+                setattr(cell, "global_col", excel_cell.global_col)
                 table_data.table_cells.append(cell)
 
             doc.add_table(data=table_data, parent=self.parents[0])
@@ -260,7 +262,6 @@ class MsExcelDocumentBackend(DeclarativeDocumentBackend):
                             global_col=rj,
                         )
                     )
-                    # _log.info(f"cell: {ri}, {rj} -> {ri - start_row}, {rj - start_col}, {row_span}, {col_span}: {str(cell.value)}")
 
                     # Mark all cells in the span as visited
                     for span_row in range(ri, ri + row_span):
