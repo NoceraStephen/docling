@@ -169,7 +169,7 @@ class MsExcelDocumentBackend(DeclarativeDocumentBackend):
                     column_header=excel_cell.row == 0,
                     row_header=False,
                 )
-                table_data.table_cells.append((cell, cell.global_row, cell.global_col))
+                table_data.table_cells.append((cell, excel_cell.global_row, excel_cell.global_col))
 
             doc.add_table(data=table_data, parent=self.parents[0])
 
