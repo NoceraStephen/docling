@@ -36,8 +36,6 @@ class ExcelCell(BaseModel):
     text: str
     row_span: int
     col_span: int
-    global_row: int
-    global_col: int
 
 
 class ExcelTable(BaseModel):
@@ -256,8 +254,6 @@ class MsExcelDocumentBackend(DeclarativeDocumentBackend):
                             text=str(cell.value),
                             row_span=row_span,
                             col_span=col_span,
-                            global_row=ri,
-                            global_col=rj,
                         )
                     )
 
